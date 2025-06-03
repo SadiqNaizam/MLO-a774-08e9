@@ -1,14 +1,25 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import React from 'react';
+import MainAppLayout from '../components/layout/MainAppLayout';
+import StatsGrid from '../components/Dashboard/StatsGrid';
+import BarChartCard from '../components/Dashboard/BarChartCard';
+import LineChartCard from '../components/Dashboard/LineChartCard';
+import ScoreWidgets from '../components/Dashboard/ScoreWidgets';
 
-const Index = () => {
+const IndexPage: React.FC = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
+    <MainAppLayout>
+      <div className="flex flex-col gap-6">
+        <StatsGrid />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* BarChartCard visually takes more space, typically 2/3 of the row */}
+          <BarChartCard className="md:col-span-2" />
+          {/* LineChartCard takes the remaining 1/3 of the row */}
+          <LineChartCard className="md:col-span-1" />
+        </div>
+        <ScoreWidgets />
       </div>
-    </div>
+    </MainAppLayout>
   );
 };
 
-export default Index;
+export default IndexPage;
